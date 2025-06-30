@@ -1,0 +1,45 @@
+// =========
+// Header
+// =========
+
+.header {
+  background-color: $navigation-bg;
+
+  &-logo-container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    padding: 10px;
+
+    &-image {
+      height: 100%;
+      max-height: 5vh;
+      width: auto;
+    }
+  }
+
+  .main-navigation,
+  .mobile-navigation-toggler {
+    min-height: 5vh;
+  }
+
+  .mobile-navigation-toggler {
+    display: none;
+
+    svg {
+      height: 1.5rem;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .main-navigation {
+      display: none;
+    }
+
+    .mobile-navigation-toggler {
+      align-items: center;
+      display: flex;
+      justify-content: end;
+    }
+  }
+}

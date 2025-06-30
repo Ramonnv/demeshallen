@@ -1,0 +1,41 @@
+// =========
+// Breadcrumbs
+// =========
+.fairbase-breadcrumbs {
+  margin: 1em 0;
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      &::after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 4px;
+        height: 14px;
+        width: 14px;
+        background-image: url('../images/icons/breadcrumb-divider.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      &:last-of-type {
+        &::after {
+          display: none;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+// =========
+// Footer
+// =========
+.footer {
+  background-color: $primary-color;
+  min-height: 20vh;
+  padding: 10px 0;
+
+  h2,
+  a,
+  p {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &-column {
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  }
+}

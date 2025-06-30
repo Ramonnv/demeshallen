@@ -1,0 +1,130 @@
+{
+    "key": "group_67fe33cf4fa7b",
+    "title": "Block - 2 columns",
+    "fields": [
+        {
+            "key": "field_67fe367141905",
+            "label": "Container",
+            "name": "container",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Nieuw kolom",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_67fe368c41906",
+                    "label": "Kolom",
+                    "name": "column",
+                    "aria-label": "",
+                    "type": "flexible_content",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layouts": {
+                        "layout_67fe369679118": {
+                            "key": "layout_67fe369679118",
+                            "name": "title",
+                            "label": "Titel",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_67fe369e41907",
+                                    "label": "Titel",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_67fe372b232f6": {
+                            "key": "layout_67fe372b232f6",
+                            "name": "paragraph",
+                            "label": "Paragraaf",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_67fe3736232f8",
+                                    "label": "Paragraaf",
+                                    "name": "paragraaf",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        }
+                    },
+                    "min": "",
+                    "max": "",
+                    "button_label": "Nieuw element",
+                    "parent_repeater": "field_67fe367141905"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/twee-kolommen"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1744713812
+}

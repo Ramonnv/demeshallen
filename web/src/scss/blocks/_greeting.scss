@@ -1,0 +1,13 @@
+.greeting {
+  padding: 20px;
+  background-color: $white;
+
+  &-title {
+    color: $primary-color;
+  }
+
+  &-btn-container {
+    display: flex;
+    gap: 10px;
+  }
+}

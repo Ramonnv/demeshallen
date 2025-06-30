@@ -1,0 +1,48 @@
+.main-navigation {
+  nav {
+    padding: 1rem 0;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      justify-content: right;
+      gap: 20px;
+
+      li {
+        a {
+          text-decoration: none;
+          color: $navigation-link-color;
+
+          &:hover {
+            text-decoration: none;
+            color: $navigation-link-active-color;
+          }
+        }
+
+        &.menu-item-has-children {
+          position: relative;
+
+          & > ul {
+            display: none;
+            position: absolute;
+            top: calc(100% + 1rem);
+            left: 0;
+            background-color: $navigation-bg;
+            padding: 15px 5px;
+            min-width: 250px;
+            text-wrap: nowrap;
+            border-radius: 0 0 10px 10px;
+
+            li {
+              &:not(:last-child) {
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

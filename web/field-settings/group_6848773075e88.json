@@ -1,0 +1,169 @@
+{
+    "key": "group_6848773075e88",
+    "title": "Options – Footer settings",
+    "fields": [
+        {
+            "key": "field_68487730ff23b",
+            "label": "Contactgegevens",
+            "name": "contact_fields",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_68487754ff23c",
+                    "label": "Adres",
+                    "name": "address",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "Damrak 1",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_684877a2ff23d",
+                    "label": "Postcode",
+                    "name": "zipcode",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "1012 AB",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_684877b3ff23e",
+                    "label": "Plaatsnaam",
+                    "name": "place_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "Amsterdam",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_68487b6793c7f",
+                    "label": "Adres locatie link",
+                    "name": "address_url_link",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "https:\/\/www.google.com\/maps\/place\/",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_684877e9ff23f",
+                    "label": "Telefoonnummer",
+                    "name": "phonenumber",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Behoud het volgende formaat:\r\n+31 6 1234 5678",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "+31 6 1234 5678",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_684877f4ff240",
+                    "label": "E-mail",
+                    "name": "e_mail",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "johndoe@example.nl",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-fairbase"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1749583775
+}

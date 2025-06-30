@@ -1,0 +1,44 @@
+%btn {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 8px;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+
+  svg {
+    height: 1rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn {
+  @extend %btn;
+}
+
+.btn-primary {
+  @extend %btn;
+  color: $btn-text-color;
+  background-color: $btn-bg-primary;
+
+  &:hover {
+    background-color: $btn-bg-primary-hover;
+  }
+}
+
+.btn-outline {
+  @extend %btn;
+  color: $btn-bg-primary;
+  border: solid 1px $btn-bg-primary;
+
+  &:hover {
+    color: $btn-text-color;
+    background-color: $btn-bg-primary-hover;
+  }
+}
+
