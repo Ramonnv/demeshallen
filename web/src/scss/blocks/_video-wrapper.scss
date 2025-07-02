@@ -1,0 +1,30 @@
+.video-wrapper {
+  background-color: $white;
+  position: relative;
+  border-radius: 5px;
+
+  &-title-wrapper {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    left: 38px;
+    background-color: $body-bg;
+    padding: 5px 15px;
+    border-radius: 0 0 25px 25px;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  &-description {
+    padding: 30px 40px;
+    border-radius: 5px;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+    }
+  }
+}

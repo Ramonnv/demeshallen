@@ -4,6 +4,7 @@
 @import 'https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900&display=swap';
 
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&display=swap');
 
 
 // =========
@@ -35,7 +36,6 @@ h5,
 h6,
 .h6 {
   font-family: $font-family-headings;
-
   color: $heading-color;
   font-weight: $heading-font-weight;
   margin-bottom: 1rem;
@@ -45,9 +45,59 @@ h6,
   }
 }
 
+p,
+a,
+b,
+strong,
+li,
+th,
+td,
+span,
+div,
+em,
+i,
+u,
+small,
+label,
+button,
+input,
+textarea,
+select,
+blockquote,
+code,
+pre,
+abbr,
+mark,
+cite,
+dl,
+dt,
+dd {
+  font-family: $font-family-primary;
+}
+
+p {
+  color: $grey-3;
+  font-size: $font-size-base;
+}
+
+a {
+  color: $primary-color;
+
+  &:hover {
+    color: $primary-color-hover;
+  }
+}
+
+b,
+strong,
+.strong {
+  color: $primary-color;
+  font-weight: 700;
+}
+
 h1,
 .h1 {
-  font-size: 32px;
+  font-size: 40px;
   line-height: 1.2;
 
   @include media-breakpoint-down(lg) {
@@ -61,25 +111,25 @@ h1,
 
 h2,
 .h2 {
-  font-size: 26px;
+  font-size: 32px;
   line-height: 1.2;
 
   @include media-breakpoint-down(lg) {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   @include media-breakpoint-down(md) {
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 
 h3,
 .h3 {
-  font-size: 22px;
+  font-size: 28px;
   line-height: 1.2;
 
   @include media-breakpoint-down(md) {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 
@@ -101,14 +151,6 @@ h6,
   font-size: 18px;
   font-weight: 500;
   line-height: 1.71;
-}
-
-a {
-  color: $primary-color;
-
-  &:hover {
-    color: $primary-color-hover;
-  }
 }
 
 %copy-s,
@@ -147,9 +189,4 @@ a {
 
 .font-weight-700 {
   font-weight: 900;
-}
-
-strong,
-.strong {
-  font-weight: 700;
 }

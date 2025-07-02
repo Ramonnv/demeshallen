@@ -1,0 +1,76 @@
+.hexagon-grid {
+    min-height: 80vh;
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center; // centers rows horizontally
+
+    .hexagon-grid-row {
+        margin-top: -9vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        min-width: 100vw;
+        filter: drop-shadow(-2px 4px 8px rgba(61, 61, 61, .25));
+
+        .hexagon-wrapper,
+        .hexagon-wrapper-empty {
+            @include hexagon-clip;
+            background-color: $white;
+            position: relative;
+            width: 100%;
+            min-width: calc(100% / 6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 300ms ease-in-out;
+
+            .company-name {
+                color: $black;
+                font-size: 1.5rem;
+            }
+
+            &::after {
+                @include hexagon-clip;
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: transparent;
+                z-index: -1;
+            }
+        }
+
+        .hexagon-wrapper:hover {
+            background-color: var(--special-color);
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .hexagon-wrapper-empty {
+            opacity: .5;
+        }
+    }
+
+    .hexagon-grid-row:nth-child(even) {
+        transform: translateX(-13.15vw);
+    }
+
+    .hexagon-grid-row:nth-child(odd) {
+        transform: translateX(13.15vw);
+    }
+}
+
+@media (max-width: 542px) {
+    .hexagon-grid {
+        .hexagon-grid-row {
+            margin-top: 2vh;
+        }
+    }
+}

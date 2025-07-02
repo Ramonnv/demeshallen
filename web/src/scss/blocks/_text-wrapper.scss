@@ -1,0 +1,24 @@
+.text-wrapper {
+  background-color: $white;
+  position: relative;
+  border-radius: 10px 100px;
+
+  &-title-wrapper {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    left: 38px;
+    background-color: $body-bg;
+    padding: 5px 15px;
+    border-radius: 0 0 25px 25px;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  &-description {
+    padding: 50px 80px 30px;
+    border-radius: 5px;
+  }
+}

@@ -1,0 +1,31 @@
+// Define a reusable list style (if needed)
+%custom-list {
+  list-style: none; // Remove default bullet
+  padding-left: 0;
+  position: relative;
+
+  li {
+    position: relative;
+    padding-left: calc(.5em + 50px);
+    margin-bottom: .5em;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1em;
+      height: 1em;
+      background-image: url('../images/icons/li-fill-hex.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+// Apply it to ul
+ul {
+  @extend %custom-list;
+}

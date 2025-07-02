@@ -33,9 +33,36 @@
 @import 'components/buttons';
 @import 'components/breadcrumb';
 @import 'components/wysiwyg';
+@import 'components/lists';
+@import 'components/text-fields';
 
 // =========================================
 // Seperate blocks
 // =========================================
 @import 'blocks/example';
 @import 'blocks/greeting';
+@import 'blocks/text-wrapper';
+@import 'blocks/video-wrapper';
+@import 'blocks/hexagon-grid';
+
+
+/*
+    =========================================
+
+    Remove the following later!!
+
+    =========================================
+*/
+
+header, footer {
+    background-color: #232323;
+    color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+}
+
+main {
+    min-height: 80vh;
+}

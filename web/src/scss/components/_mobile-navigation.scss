@@ -7,11 +7,12 @@
   box-shadow: 0 0 5px $black;
   height: 100vh;
   max-width: 80vw;
+  z-index: 999999;
   min-width: 45vw;
   position: fixed;
   right: -100vw;
   top: 0;
-  transition: right 200ms ease-out;
+  transition: right 300ms ease-out;
 
   &-header {
     align-items: center;
@@ -37,12 +38,23 @@
         padding-left: 0;
 
         li {
+          padding-left: 0;
+
+          &::before {
+            display: none;
+          }
+
           a {
             display: block;
             height: 100%;
             padding: 10px 5px;
             text-decoration: none;
+            color: $primary-color;
             width: 100%;
+
+            &:hover {
+              color: $bright-primary;
+            }
           }
 
           &.menu-item-has-children {

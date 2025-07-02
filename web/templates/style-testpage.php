@@ -31,25 +31,19 @@ $hasContent = !empty( get_the_content() );
                 <h1>Header 1</h1>
                 <h2>Header 2</h2>
                 <h3>Header 3</h3>
-                <h4>Header 4</h4>
-                <h5>Header 5</h5>
-                <h6>Header 6</h6>
             </div>
             <div class="col-6">
-                <p>Headers by class</p>
-                <div class="h1">Header 1</div>
-                <div class="h2">Header 2</div>
-                <div class="h3">Header 3</div>
-                <div class="h4">Header 4</div>
-                <div class="h5">Header 5</div>
-                <div class="h6">Header 6</div>
-            </div>
-            <div class="col-12">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nostrum nisi error.
-                    Sunt est voluptate nobis nulla veniam magni, et sint atque eaque quae eveniet?
-                    Quod odio similique consequatur deleniti dicta saepe accusantium! Atque, beatae.
-                </p>
+                <div class="col-12">
+                    <p>Headers by class</p>
+                    <div class="h1">Header 1</div>
+                    <div class="h2">Header 2</div>
+                    <div class="h3">Header 3</div>
+                </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum nostrum nisi error.
+                        Sunt est voluptate nobis nulla veniam magni, et sint atque eaque quae eveniet?
+                        Quod odio similique consequatur deleniti dicta saepe accusantium! Atque, beatae.
+                    </p>
             </div>
         </div>
     </div>
@@ -84,23 +78,6 @@ $hasContent = !empty( get_the_content() );
             <div class="col-12 col-md-6 col-lg-3 mt-16">
                 <a href="#" class="btn-primary">Primary button</a>
             </div>
-            <div class="col-12 col-md-6 col-lg-3 mt-16">
-                <a href="#" class="btn-secondary">Secondary button</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="container mt-30">
-        <div class="row">
-            <div class="col-12">
-                <h2>Buttons with svg (a)</h2>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3 mt-16">
-                <a href="#" class="btn-primary">Primary button <?= svg(); ?></a>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3 mt-16">
-                <a href="#" class="btn-secondary">Secondary button <?= svg(); ?></a>
-            </div>
         </div>
     </div>
 
@@ -112,25 +89,76 @@ $hasContent = !empty( get_the_content() );
             <div class="col-12 col-md-6 col-lg-3 mt-16">
                 <button class="btn-primary">Primary button</button>
             </div>
-            <div class="col-12 col-md-6 col-lg-3 mt-16">
-                <button class="btn-secondary">Secondary button</button>
-            </div>
         </div>
     </div>
 
-    <div class="container mt-30">
-        <div class="row">
-            <div class="col-12">
-                <h2>Buttons with svg (button element)</h2>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3 mt-16">
-                <button class="btn-primary">Primary button <?= svg(); ?></button>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3 mt-16">
-                <button class="btn-secondary">Secondary button <?= svg(); ?></button>
-            </div>
-        </div>
-    </div>
+
+    <hr>
+
+
+<div class="hexagon-grid">
+<?php 
+$data = [
+    ["company_name" => "company 1", "company_color" => "blue"],
+    ["company_name" => "company 2", "company_color" => "red"],
+    ["company_name" => "company 3", "company_color" => "orange"],
+    ["company_name" => "company 4", "company_color" => "pink"],
+    ["company_name" => "company 5", "company_color" => "green"],
+    ["company_name" => "company 6", "company_color" => "purple"],
+    ["company_name" => "company 7", "company_color" => "yellow"],
+    ["company_name" => "company 8", "company_color" => "cyan"],
+    ["company_name" => "company 9", "company_color" => "magenta"],
+    ["company_name" => "company 10", "company_color" => "teal"],
+    ["company_name" => "company 11", "company_color" => "lime"],
+    ["company_name" => "company 12", "company_color" => "indigo"],
+    // ["company_name" => "company 13", "company_color" => "gray"],
+    // ["company_name" => "company 14", "company_color" => "brown"],
+    // ["company_name" => "company 15", "company_color" => "maroon"],
+    // ["company_name" => "company 16", "company_color" => "navy"],
+    // ["company_name" => "company 17", "company_color" => "olive"],
+    // ["company_name" => "company 18", "company_color" => "coral"],
+    // ["company_name" => "company 19", "company_color" => "gold"],
+    // ["company_name" => "company 20", "company_color" => "silver"],
+    // ["company_name" => "company 21", "company_color" => "beige"],
+    // ["company_name" => "company 22", "company_color" => "lavender"]
+];
+
+$index = 0;
+$row = 0;
+
+while ($index < count($data)) {
+    echo '<div class="hexagon-grid-row">';
+
+    $isOdd = $row % 2 !== 0;
+
+    // Left empty wrappers
+    echo str_repeat('<div class="hexagon-wrapper-empty"><div class="company-name"></div></div>', $isOdd ? 3 : 1);
+
+    // Company wrappers
+    $filled = 0;
+    for ($i = 0; $i < 4; $i++) {
+        if ($index < count($data)) {
+            $c = $data[$index++];
+            echo '<div class="hexagon-wrapper" style="--special-color:'.$c['company_color'].';"><div class="company-name">'.$c['company_name'].'</div></div>';
+            $filled++;
+        } else {
+            echo '<div class="hexagon-wrapper-empty"><div class="company-name"></div></div>';
+        }
+    }
+
+    // Right empty wrappers
+    echo str_repeat('<div class="hexagon-wrapper-empty"><div class="company-name"></div></div>', $isOdd ? 1 : 3);
+
+    echo '</div>';
+    $row++;
+}
+?>
+</div>
+
+
+
+
+
 
     <hr>
 
@@ -138,93 +166,10 @@ $hasContent = !empty( get_the_content() );
         <div class="row">
             
             <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="text" placeholder="text">
+                <input type="text" placeholder="Voorbeeld...">
             </div>
             <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="password" placeholder="password">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="email" placeholder="email">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="tel" placeholder="tel">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="url" placeholder="url">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="number" placeholder="number">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="range" placeholder="range">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="date" placeholder="date">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="time" placeholder="time">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="color" placeholder="color">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="file">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="search" placeholder="search">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <label>
-                    <input type="checkbox"> Checkbox
-                </label>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <label>
-                    <input type="radio" name="example-radio"> Radio 1
-                </label><br>
-                <label>
-                    <input type="radio" name="example-radio"> Radio 2
-                </label>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <textarea placeholder="textarea"></textarea>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <select>
-                    <option value="">Select an option</option>
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                </select>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="datetime-local" placeholder="datetime-local">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="month" placeholder="month">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="week" placeholder="week">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="hidden" value="hidden value">
-            </div>
-        
-
-            <!-- Form validation -->
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="text" class="is-valid" value="Valid input">
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="text" class="is-invalid" value="Invalid input">
-                <small class="form-text text-danger">Error message</small>
-            </div>
-
-            <!-- Disabled & readonly -->
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="text" value="Disabled input" disabled>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mt-16">
-                <input type="text" value="Readonly input" readonly>
+                <textarea placeholder="Dit is een voorbeeld tekst..."></textarea>
             </div>
         </div>
     </div>
@@ -233,29 +178,10 @@ $hasContent = !empty( get_the_content() );
 
     <div class="container mt-30">
         <h2>Lists</h2>
-        <ul>
+        <ul class="ul">
             <li>Unordered item 1</li>
             <li>Unordered item 2</li>
         </ul>
-        <ol>
-            <li>Ordered item 1</li>
-            <li>Ordered item 2</li>
-        </ol>
-    </div>
-
-    <hr>
-
-    <div class="container mt-30">
-        <h2>Table</h2>
-        <table class="table">
-            <thead>
-                <tr><th>#</th><th>Name</th><th>Email</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>Alice</td><td>alice@example.com</td></tr>
-                <tr><td>2</td><td>Bob</td><td>bob@example.com</td></tr>
-            </tbody>
-        </table>
     </div>
 
     <hr>
@@ -266,7 +192,7 @@ $hasContent = !empty( get_the_content() );
         <blockquote>A blockquote example for style testing.</blockquote>
         <p><code>Inline code sample</code></p>
         <pre><code>Preformatted text
-with multiple lines</code></pre>
+        with multiple lines</code></pre>
     </div>
 
     <hr>
@@ -282,6 +208,8 @@ with multiple lines</code></pre>
         </div>
     <?php endif; ?>
 </main>
+
+
 
 
 <?php get_footer(); ?>
