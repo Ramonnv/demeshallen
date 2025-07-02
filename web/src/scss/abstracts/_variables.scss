@@ -13,11 +13,13 @@ $bright-primary: #e59164;
 // =========
 $grey-1: #3d3d3d;
 $grey-2: #616161;
+$grey-2-blur: #61616133;
+$grey-3: #878787;
 
-$transparant: rgba(0, 0, 0, 0);
-
+$transparant: #00000000;
 $black: #000;
 $white: #fafafa;
+$full-white: #fff;
 
 $body-bg: #fff;
 $body-color: $grey-1;
@@ -35,17 +37,16 @@ $btn-text-color: $white;
 // Header navigation
 // =========
 $navigation-bg: #fff;
-$navigation-link-color: $primary-color;
-$navigation-link-active-color: $bright-primary;
+$navigation-link-color: $black;
+$navigation-link-active-color: $black;
 
 // =========
 // Typography
 // =========
-$font-family-primary: 'Roboto', Helvetica, Arial, Sans-Serif, serif;
+$font-family-primary: 'Agdasima', Helvetica, Arial, Sans-Serif, serif;
 $font-family-headings: 'Oswald', sans-serif;
 
-
-$font-size-base: 18px;
+$font-size-base: 22px;
 $line-height-base: 1.35;
 $font-weight-base: 400;
-$heading-font-weight: 700;
+$heading-font-weight: 400;

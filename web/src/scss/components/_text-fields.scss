@@ -1,0 +1,13 @@
+%text-field {
+  border: solid 1px $grey-2-blur;
+  border-radius: 5px;
+}
+
+input,
+textarea {
+  @extend %text-field;
+
+  &::placeholder {
+    color: $grey-3;
+  }
+}

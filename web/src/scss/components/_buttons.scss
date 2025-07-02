@@ -3,7 +3,7 @@
   align-items: center;
   width: fit-content;
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   gap: 8px;
   text-decoration: none;
   cursor: pointer;
@@ -23,11 +23,13 @@
 
 .btn-primary {
   @extend %btn;
-  color: $btn-text-color;
-  background-color: $btn-bg-primary;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+  background-color: $full-white;
 
   &:hover {
-    background-color: $btn-bg-primary-hover;
+    background-color: $primary-color;
+    color: $full-white;
   }
 }
 
@@ -41,4 +43,3 @@
     background-color: $btn-bg-primary-hover;
   }
 }
-
