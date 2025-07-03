@@ -24,12 +24,14 @@
 @import 'layout/header';
 @import 'layout/body';
 @import 'layout/footer';
+@import 'layout/page-404';
 
 // =========================================
 // Setup all components
 // =========================================
 @import 'components/main-navigation';
 @import 'components/mobile-navigation';
+@import 'components/hero-image';
 @import 'components/buttons';
 @import 'components/breadcrumb';
 @import 'components/wysiwyg';

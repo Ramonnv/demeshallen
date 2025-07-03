@@ -20,6 +20,7 @@
         .hexagon-wrapper,
         .hexagon-wrapper-empty {
             @include hexagon-clip;
+            text-decoration: none;
             background-color: $white;
             position: relative;
             width: 100%;
@@ -27,11 +28,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: 300ms ease-in-out;
+            transition: 400ms ease-in-out;
 
             .company-name {
-                color: $black;
                 font-size: 1.5rem;
+                color: $black;
             }
 
             &::after {
@@ -50,7 +51,19 @@
         .hexagon-wrapper:hover {
             background-color: var(--special-color);
             transform: scale(1.05);
-            cursor: pointer;
+            transition: 200ms ease-in-out;
+
+            .company-name {
+                font-weight: 700;
+
+                &.text-white {
+                    color: $full-white;
+                }
+
+                &.text-black {
+                    color: $black;
+                }
+            }
         }
 
         .hexagon-wrapper-empty {

@@ -24,6 +24,10 @@ if (isset($block['data']['preview_image'])) {
 
 // Get ACF fiels
 $example_description = get_field('example_desc');
+
+// Put custom functions here
+
+
 ?>
 
 <section id="<?= $id; ?>" class="<?= $class; ?>">
