@@ -1,27 +1,13 @@
 jQuery(document).ready(function($) {
 
- const swiper = new Swiper('.swiper', {
-  // Default parameters
-  slidesPerView: 1,
-  spaceBetween: 10,
-  // Responsive breakpoints
-  breakpoints: {
-    // when window width is >= 320px
-    320: {
-      slidesPerView: 2,
-      spaceBetween: 20
-    },
-    // when window width is >= 480px
-    480: {
-      slidesPerView: 3,
-      spaceBetween: 30
-    },
-    // when window width is >= 640px
-    640: {
-      slidesPerView: 4,
-      spaceBetween: 40
-    }
-  }
-});
-
+ new Swiper('.hexagon-swiper', {
+  speed: 8000,
+  slidesPerView: '4',
+  spaceBetween: 25,
+  grabCursor: false,
+  loop: true,
+  centeredSlides: false,
+  allowTouchMove: false,
+  autoplay: true,
+ });
 });
