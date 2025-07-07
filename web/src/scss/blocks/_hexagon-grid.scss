@@ -5,17 +5,18 @@
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-    align-items: center; // centers rows horizontally
+    align-items: center;
 
     .hexagon-grid-row {
         margin-top: -9vh;
+        margin-left: 6vw;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 20px;
-        padding: 10px;
-        min-width: 100vw;
-        filter: drop-shadow(-2px 4px 8px rgba(61, 61, 61, .25));
+        padding: 25px;
+        min-width: 76vw;
+        filter: drop-shadow(-2px 4px 8px $grey-2-blur);
 
         .hexagon-wrapper,
         .hexagon-wrapper-empty {
@@ -43,7 +44,7 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                background-color: transparent;
+                background-color: rgba($white, 0.5);
                 z-index: -1;
             }
         }
@@ -51,7 +52,7 @@
         .hexagon-wrapper:hover {
             background-color: var(--special-color);
             transform: scale(1.05);
-            transition: 200ms ease-in-out;
+            transition: 300ms ease-in-out;
 
             .company-name {
                 font-weight: 700;
@@ -68,6 +69,10 @@
 
         .hexagon-wrapper-empty {
             opacity: .5;
+
+            &::after {
+                filter: none;
+            }
         }
     }
 
@@ -76,7 +81,7 @@
     }
 
     .hexagon-grid-row:nth-child(odd) {
-        transform: translateX(13.15vw);
+        transform: translateX(6.8vw);
     }
 }
 
