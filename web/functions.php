@@ -23,6 +23,7 @@ require_once FAIRBASE_DIR_PATH . '/inc/helpers/autoloader.php';
 require_once FAIRBASE_DIR_PATH . '/inc/helpers/google-tag-manager.php';
 require_once FAIRBASE_DIR_PATH . '/inc/helpers/template-tags.php';
 require_once FAIRBASE_DIR_PATH . '/inc/helpers/breadcrumbs.php';
+require_once FAIRBASE_DIR_PATH . '/inc/helpers/array_helpers.php';
 
 
 //	===========================================================

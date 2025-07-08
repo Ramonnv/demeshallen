@@ -24,6 +24,14 @@ if (isset($block['data']['preview_image'])) {
 
 // Get ACF repeater or gallery field
 $swiper_items = get_field('hexagon_swiper');
+$minimalBoxes = 6;
+
+if (count($swiper_items) < $minimalBoxes) {
+  $stillNeeded = $minimalBoxes - count($swiper_items);
+  for ($i=0; $i<$stillNeeded;$i++) {
+    $swiper_items[]['hexagon_image'] = '';
+  }
+}
 
 ?>
 
@@ -32,15 +40,16 @@ $swiper_items = get_field('hexagon_swiper');
     <div class="swiper-wrapper">
       <?php if ($swiper_items): ?>
         <?php foreach ($swiper_items as $item): ?>
-          <?php
-            $image = is_array($item) && isset($item['hexagon_image']) ? $item['hexagon_image'] : $item;
-            $image_url = is_array($image) ? $image['url'] : $image;
-            $alt = is_array($image) && isset($image['alt']) ? $image['alt'] : '';
-          ?>
           <div class="swiper-slide">
             <div class="hexagon-swiper-slide">
               <div class="mixin">
-                <img src="<?= esc_url($image_url); ?>" alt="<?= esc_attr($alt); ?>">
+                <?php
+                
+                if( $item['hexagon_image'] ) {
+                  echo wp_get_attachment_image($item['hexagon_image'], 'hexagon-swiper-image');
+                }
+
+                ?>
               </div>
             </div>
           </div>

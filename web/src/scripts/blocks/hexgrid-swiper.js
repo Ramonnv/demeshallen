@@ -1,13 +1,20 @@
-jQuery(document).ready(function($) {
-
+jQuery(document).ready(function ($) {
  new Swiper('.hexagon-swiper', {
-  speed: 8000,
-  slidesPerView: '4',
-  spaceBetween: 25,
-  grabCursor: false,
-  loop: true,
-  centeredSlides: false,
-  allowTouchMove: false,
-  autoplay: true,
+  slidesPerView: 2.3,
+  spaceBetween: -100,
+  allowTouchMove: true,
+  grabCursor: true,
+  freeMode: true,
+  slidesOffsetBefore: 25,
+  slidesOffsetAfter: 25,
+  breakpoints: {
+   992: {
+    slidesPerView: 4.5,
+   },
+
+   768: {
+    slidesPerView: 2.5,
+   },
+  },
  });
 });

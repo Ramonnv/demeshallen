@@ -9,7 +9,7 @@
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -18,7 +18,7 @@
             },
             "layout": "table",
             "pagination": 0,
-            "min": 0,
+            "min": 6,
             "max": 0,
             "collapsed": "",
             "button_label": "Nieuwe rij",
@@ -31,14 +31,14 @@
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "id",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -72,5 +72,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1751873486
+    "modified": 1751965580
 }
