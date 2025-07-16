@@ -20,5 +20,13 @@
   &-description {
     padding: 50px 80px 30px;
     border-radius: 5px;
+
+    &-info {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 15px;
+
+    }
   }
 }

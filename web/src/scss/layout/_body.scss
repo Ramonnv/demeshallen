@@ -1,6 +1,9 @@
 // =========
 // Main, body and sections
 // =========
+html {
+  overflow-x: hidden;
+}
 
 main {
   min-height: 75vh;

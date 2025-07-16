@@ -2,8 +2,12 @@
 
 $contactData = get_field('contact_fields', 'option');
 
-function fixPhoneNumber($x) {
-  return str_replace(' ', '', $x);
+if (!function_exists('fixPhoneNumber')) {
+
+  function fixPhoneNumber($x) {
+    return str_replace(' ', '', $x);
+  }
+
 }
 
 ?>
