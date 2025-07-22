@@ -2,6 +2,7 @@
   background-color: $white;
   position: relative;
   border-radius: 10px 100px;
+  filter: drop-shadow(-2px 4px 8px rgba(61, 61, 61, 0.15));
 
   &-title-wrapper {
     position: absolute;
