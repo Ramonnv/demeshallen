@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><?php echo get_the_title(); ?> | <?php bloginfo('name'); ?></title>
   
-  <?php if ($favicon = get_field('favicon', 'option')) : ?>
+  <?php if ($favicon = get_field('favicon', 'option'), 'full') : ?>
 
     <link rel="icon" type="image/x-icon" href="<?= $favicon; ?>">
 
