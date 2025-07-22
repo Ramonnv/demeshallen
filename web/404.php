@@ -13,7 +13,7 @@
 <div class="page-404-main">
   <div class="page-404-main-text">
     
-  <h1><?= esc_html(get_field('title', 'options'));?></h1>
+  <h1><?= esc_html(get_field('404_title', 'options'));?></h1>
   <?php
     $btn_text = get_field('404_btn_title', 'options');
     $btn_link = get_field('404_btn_link', 'options');
