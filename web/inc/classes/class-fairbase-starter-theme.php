@@ -51,8 +51,9 @@ class FAIRBASE_STARTER_THEME {
 		*  Add various image sizes.
 		*/
 		add_image_size( 'theme-icon', 64, 64, true );
-		add_image_size( 'navigation-image', 100, 100, true );
+		add_image_size( 'navigation-image', 600, 300, true );
 		add_image_size( 'hexagon-swiper-image', 600, 600, true );
+
 
 		/*
 		*  Add various theme support.
