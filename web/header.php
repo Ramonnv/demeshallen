@@ -26,7 +26,7 @@
       <div class="col-4">
         <a class="header-logo-container" href="<?= get_home_url(); ?>">
 
-          <?= wp_get_attachment_image(get_field('nav_image', 'option'), 'navigation-image', false, [ 
+          <?= wp_get_attachment_image(get_field('nav_image', 'option'), 'full', false, [ 
             "class" => "header-logo-container-image",
             "alt" => "" ]); 
           ?>
