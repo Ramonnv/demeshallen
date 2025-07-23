@@ -1,24 +1,25 @@
-body.error404 {
+body {
+    &.error404 {
+        .page-404-main {
+        margin-top: 40px;
 
- .page-404-main {
-  margin-top: 40px;
+        &-text {
+            text-align: center;
 
-  &-text {
-   text-align: center;
+                a {
+                    margin: auto;
+                    margin-top: 20px;
+                    padding: 10px 20px;
+                }
+            }
 
-   a {
-    margin: auto;
-    margin-top: 20px;
-    padding: 10px 20px;
-   }
-  }
-
-  &-image {
-   width: 80vw;
-   max-width: 1000px;
-   margin: auto;
-   margin-top: -40px;
-   pointer-events: none;
-  }
- }
+            &-image {
+                width: 80vw;
+                max-width: 1000px;
+                margin: auto;
+                margin-top: -40px;
+                pointer-events: none;
+            }
+        }
+    }
 }

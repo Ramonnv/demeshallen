@@ -76,23 +76,19 @@ if ($query->have_posts()) {
         for ($i = 0; $i < 4; $i++) {
             if ($index < count($data)) {
                 $c = $data[$index++];
-                if ($c['company_toggle']) {
-                    $extraClass = 'text-black';
-                } else {
-                    $extraClass = 'text-white';
-                }
+                $extraClass = $c['company_toggle'] ? 'text-black' : 'text-white';
 
                 if ($c['companyURL'] !== '') {
-                    echo '<a href="'.$c['companyURL'].'" target="_blank" class="hexagon-wrapper" style="--special-color:'.$c['company_color'].';"><div class="company-name '.$extraClass.'">'.$c['company_name'].'</div></a>';
+                    echo '<a href="' . $c['companyURL'] . '" target="_blank" class="hexagon-wrapper" style="--special-color:' . $c['company_color'] . ';"><div class="company-name ' . $extraClass . '">' . $c['company_name'] . '</div></a>';
                 } else {
-                    echo '<div class="hexagon-wrapper" style="--special-color:'.$c['company_color'].';"><div class="company-name '.$extraClass.'">'.$c['company_name'].'</div></div>';
+                    echo '<div class="hexagon-wrapper" style="--special-color:' . $c['company_color'] . ';"><div class="company-name ' . $extraClass . '">' . $c['company_name'] . '</div></div>';
                 }
-
-                $filled++;
             } else {
-                echo '<div class="hexagon-wrapper-empty"><div class="company-name"></div></div>';
+                // These are "missing post" slots — need extra class
+                echo '<div class="hexagon-wrapper-empty hexagon-added-special"><div class="company-name"></div></div>';
             }
         }
+
 
         // Right empty wrappers
         echo str_repeat('<div class="hexagon-wrapper-empty"><div class="company-name"></div></div>', $isOdd ? 1 : 3);
