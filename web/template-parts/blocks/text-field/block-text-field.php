@@ -45,9 +45,9 @@ if (!function_exists('fixPhoneNumber')) {
         <div class="row">
             <div class="col-12">
                 <div class="text-wrapper">
-                    <h2 class="text-wrapper-title-wrapper">
-                        <?= esc_html($title) ?>
-                    </h2>
+                    <div class="text-wrapper-title-wrapper">
+                        <h2><?= esc_html($title) ?></h2>
+                    </div>
                     <div class="text-wrapper-description">
                         <?= wp_kses_post($description) ?>
                         
