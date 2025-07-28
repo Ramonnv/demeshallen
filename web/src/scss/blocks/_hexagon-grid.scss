@@ -166,7 +166,7 @@
 }
 
 .hexagon-grid-row {
-    display: contents; // Flatten the structure to allow wrapping individual hexes
+    display: contents; 
 }
 
 .hexagon-grid-row:nth-child(even) {
@@ -182,29 +182,26 @@
     box-sizing: border-box;
     width: 50%;
     height: 100%;
-    padding: 10px; // Add spacing between hexes
+    padding: 10px; 
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
   }
 
-  // Every 3rd item — full width, centered
   .hexagon-wrapper:nth-of-type(3n) {
     width: 100%;
     justify-content: center;
   }
 
   .company-name {
-    font-size: 1rem; // optionally scale font down for mobile
+    font-size: 1rem;
     text-align: center;
   }
 }
 
 @media (max-width:992px) {
-    .hexagon-grid {
-        margin:0 15px;
-    }
+
     .hexagon-wrapper-empty:not(.hexagon-added-special) {
         display: none !important;
     }
@@ -217,5 +214,3 @@
         transform:translateX(-4.2vw);
     }
 }
-
-
