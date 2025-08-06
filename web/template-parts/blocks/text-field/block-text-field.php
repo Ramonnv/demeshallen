@@ -46,7 +46,9 @@ if (!function_exists('fixPhoneNumber')) {
             <div class="col-12">
                 <div class="text-wrapper">
                     <div class="text-wrapper-title-wrapper">
+                      <div class="text-wrapper-title-wrapper__reduce-title-height">
                         <h2><?= esc_html($title) ?></h2>
+                      </div>
                     </div>
                     <div class="text-wrapper-description">
                         <?= wp_kses_post($description) ?>
@@ -78,9 +80,72 @@ if (!function_exists('fixPhoneNumber')) {
             echo '</div>';
           }
           ?>
-                    </div>
                 </div>
+                <?php if (get_field('meetingrooms_section')) :
+              $mtflds = get_field('meetingrooms_data');
+              ?>
+            <div class="col-12 wrapper meetingroom-section">
+                <div class="text-wrapper-title-wrapper">
+                  <div class="text-wrapper-title-wrapper__reduce-title-height">
+                        <h2><?= $mtflds['title']; ?></h2>
+                      </div>
+                </div>
+                <div class="text-wrapper-description">
+                  <?= $mtflds['text_one']; ?>
+                </div>
+                  <div class="row meetingroom-blocks-wrapper">
+
+                    <?php 
+                
+                $args = array(
+                  'post_type' => 'vergaderruimtes',
+                  'posts_per_page' => -1,
+                  'post_status' => 'publish'
+                );
+                
+                $posts = get_posts($args);
+                
+                foreach ($posts as $post) { ?>
+    
+    <div class="col-6 col-md-4 col-lg-3 mt-32">
+      <div class="meetingroom-wrapper" data-postid="<?=$post->ID; ?>">
+        <h3><?= get_the_title($post->ID); ?></h3>
+        <div class="meetingroom-people-counter">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" viewBox="0 0 20 17" fill="none">
+            <path d="M19 15.9999C19 14.2583 17.3304 12.7767 15 12.2275M13 16C13 13.7909 10.3137 12 7 12C3.68629 12 1 13.7909 1 16M13 9C15.2091 9 17 7.20914 17 5C17 2.79086 15.2091 1 13 1M7 9C4.79086 9 3 7.20914 3 5C3 2.79086 4.79086 1 7 1C9.20914 1 11 2.79086 11 5C11 7.20914 9.20914 9 7 9Z" stroke="#EA5B11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <?= get_field('people_count' , $post->ID);?>
+          <p class="people_count_text">Personen</p>
+        </div>
+      </div>
+    </div>
+    
+  <?php
+}
+
+wp_reset_postdata();
+?>
+
+</div>
+
+                
+                <div class="text-wrapper-description">
+                  <hr>
+                  <?= $mtflds['text_two']; ?>
+                </div>
+              </div>
+              <?php endif; ?>
             </div>
+            </div>
+            
         </div>
     </div>
 </section>
+
+<?php if (get_field('meetingrooms_section')) : ?>
+
+  <div id="meetingroom-popup-wrapper" style="display:none;">
+    <?php /* Will be filled using AJAX */ ?>
+  </div>
+
+<?php endif; ?>

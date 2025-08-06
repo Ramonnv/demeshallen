@@ -1,11 +1,11 @@
 .page-hero-image-wrapper {
  width: 100vw;
  height: 60vh;
- overflow: hidden;
+ position: relative;
 }
 
 .hero-image {
-  height: 100vh;
+  height: 60vh;
   background-image: var(--imageURL);
   background-position: center;
   background-size: cover;

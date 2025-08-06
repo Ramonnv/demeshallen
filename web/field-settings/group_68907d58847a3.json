@@ -1,9 +1,9 @@
 {
-    "key": "group_68666e10394d3",
-    "title": "Hero - hero afbeelding",
+    "key": "group_68907d58847a3",
+    "title": "template - Contact page",
     "fields": [
         {
-            "key": "field_68666e1072d34",
+            "key": "field_68907d5864a64",
             "label": "Hero afbeelding",
             "name": "hero_image",
             "aria-label": "",
@@ -27,6 +27,40 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "medium"
+        },
+        {
+            "key": "field_68907d99afeca",
+            "label": "Medewerkers",
+            "name": "show_coworkers",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "collegas"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "return_format": "id",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -34,13 +68,6 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "default"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "!=",
                 "value": "templates\/page-contact.php"
             }
         ]
@@ -54,5 +81,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1754299776
+    "modified": 1754300091
 }

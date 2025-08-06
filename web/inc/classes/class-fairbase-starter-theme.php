@@ -30,6 +30,7 @@ class FAIRBASE_STARTER_THEME {
 		Assets::get_instance(); // Loads all styles and scripts
 		Menus::get_instance(); // Creates all menus
 		Blocks::get_instance(); // Auto registers all blocks
+		Ajax::get_instance(); // Auto registers all blocks
 		Theme_options::get_instance(); // Creates options page and adds customizer settings and controls
 		Advanced_Custom_Fields::get_instance(); // Local JSON settings
 		Custom_Post_Types::get_instance(); // Create custom post types
@@ -53,6 +54,7 @@ class FAIRBASE_STARTER_THEME {
 		add_image_size( 'theme-icon', 64, 64, true );
 		add_image_size( 'navigation-image', 900, 300, true );
 		add_image_size( 'hexagon-swiper-image', 600, 600, true );
+		add_image_size( 'contact-coworker-image', 800, 800, true );
 
 
 		/*

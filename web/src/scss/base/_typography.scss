@@ -80,6 +80,10 @@ p {
   font-size: $font-size-base;
 }
 
+li, ul {
+  color: $grey-3;
+}
+
 a {
   color: $primary-color;
 
