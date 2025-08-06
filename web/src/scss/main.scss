@@ -8,6 +8,7 @@
 @import 'abstracts/grid-framework';
 @import 'abstracts/grid';
 
+
 // =========================================
 // Setup base and aligning
 // =========================================
@@ -37,6 +38,7 @@
 @import 'components/wysiwyg';
 @import 'components/lists';
 @import 'components/text-fields';
+@import 'components/custom_gravity-form';
 
 // =========================================
 // Seperate blocks
@@ -48,13 +50,17 @@
 @import 'blocks/hex-swiper';
 @import 'blocks/hexagon-grid';
 
+// =========================================
+// CSS for templates / pages
+// =========================================
+@import 'pages/contact-page';
 
 /*
-    =========================================
+=========================================
 
-    Remove the following later!!
+Remove the following later!!
 
-    =========================================
+=========================================
 */
 
 header, footer {

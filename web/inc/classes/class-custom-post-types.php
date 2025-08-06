@@ -168,6 +168,51 @@ class Custom_Post_Types {
 
     register_post_type('vergaderruimtes', $args);
 
+    $labels = array(
+      'name'                     => _x('Collega\'s', 'Post type general name', TEXTDOMAIN),
+      'singular_name'            => _x('Collega', 'Post type singular name', TEXTDOMAIN),
+      'menu_name'                => _x('Collega\'s', 'Admin Menu text', TEXTDOMAIN),
+      'name_admin_bar'           => _x('Collega', 'Add New on Toolbar', TEXTDOMAIN),
+      'add_new'                  => __('Nieuwe Collega', TEXTDOMAIN),
+      'add_new_item'             => __('Nieuwe Collega', TEXTDOMAIN),
+      'new_item'                 => __('Nieuwe Collega', TEXTDOMAIN),
+      'edit_item'                => __('Bewerk Collega', TEXTDOMAIN),
+      'view_item'                => __('Bekijk Collega', TEXTDOMAIN),
+      'all_items'                => __('Alle Collega\'s', TEXTDOMAIN),
+      'search_items'             => __('Zoek Collega', TEXTDOMAIN),
+      'parent_item_colon'        => __('Hoofd Collega:', TEXTDOMAIN),
+      'not_found'                => __('Geen Collega\'s gevonden.', TEXTDOMAIN),
+      'not_found_in_trash'       => __('Geen Collega\'s in de prullenbak gevonden.', TEXTDOMAIN),
+      'featured_image'           => _x('Collega profielfoto', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', TEXTDOMAIN),
+      'set_featured_image'       => _x('Kies profielfoto', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', TEXTDOMAIN),
+      'remove_featured_image'    => _x('Verwijder profielfoto', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', TEXTDOMAIN),
+      'use_featured_image'       => _x('Gebruik als profielfoto', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', TEXTDOMAIN),
+      'archives'                 => _x('Collega-archieven', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', TEXTDOMAIN),
+      'insert_into_item'         => _x('Voeg toe aan Collega', 'Overrides the “Insert into post” phrase. Added in 4.4', TEXTDOMAIN),
+      'uploaded_to_this_item'    => _x('Geüpload naar deze Collega', 'Overrides the “Uploaded to this post” phrase. Added in 4.4', TEXTDOMAIN),
+      'filter_items_list'        => _x('Filter Collega\'s', 'Screen reader text for filter links heading. Added in 4.4', TEXTDOMAIN),
+      'items_list_navigation'    => _x('Collega\'s navigatie', 'Screen reader text for pagination. Added in 4.4', TEXTDOMAIN),
+      'items_list'               => _x('Collega\'s overzicht', 'Screen reader text for the items list. Added in 4.4', TEXTDOMAIN),
+    );
+
+    $args = array(
+      'labels' => $labels,
+      'public' => true,
+      'publicly_queryable' => true,
+      'show_ui' => true,
+      'show_in_menu' => true,
+      'show_in_rest' => true,
+      'query_var' => true,
+      'rewrite' => array('slug' => 'collega'),
+      'capability_type' => 'page',
+      'has_archive' => true,
+      'hierarchical' => false,
+      'menu_position' => null,
+      'supports' => array('title'),
+      'menu_icon' => 'dashicons-groups',
+    );
+
+    register_post_type('collegas', $args);
 
 
   }
