@@ -19,7 +19,7 @@ jQuery(document).ready(function ($) {
 
         if (Array.isArray(x['images'])) {
             x['images'].forEach(function (item) {
-                swiperChildren += `<div class="swiper-slide"><img src="${item}" alt=""></div>`;
+                swiperChildren += `<div class="swiper-slide"><div class="meetingroomSwiper-image-wrapper"><img src="${item}" alt=""></div></div>`;
             });
         }
 
