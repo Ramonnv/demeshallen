@@ -159,6 +159,51 @@ hr {
   }
 }
 
+@media (max-width: 765px) {
+  #meetingroom-popup-wrapper {
+    width: 100vw;
+    height: 100vh;
+    
+    .meetingroom-popup-content {
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      
+      ul {
+
+        li {
+
+          padding-left: 2rem;
+        }
+      }
+
+      .swiper-navigation-buttons {
+        display: none;
+      }
+
+      .meetingroom-short-info {
+        top:22%;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+#meetingroom-popup-wrapper {
+    width: 100vw;
+    height: 100vh;
+    
+    .meetingroom-popup-content {
+      
+      .meetingroom-point-list {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
+
 .popup-title {
   position: relative;
   display: flex;
@@ -183,44 +228,14 @@ hr {
   display: block;
 }
 
-.swiper {
+.meetingroomSwiper,
+.verticle_image_swiper,
+.hexagon-swiper {
   width: 100%;
   padding: 40px 0;
-  box-sizing: border-box;
+
 }
 
-.swiper-slide {
-  width: auto;
-  max-width: 80%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s;
-  $imageSize: 500px;
-
-  img {
-    width: 100%;
-    height: $imageSize;
-    border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
-    transition: 300ms;
-  }
-
-  &.swiper-slide-active {
-    img {}
-  }
-
-  &.swiper-slide-prev,
-  &.swiper-slide-next {
-    img {
-      margin-top: calc($imageSize * .2);
-      height: calc($imageSize * .6);
-      opacity: .5;
-    }
-  }
-}
 
 .meetingroomSwiper {
   position: relative;
@@ -251,6 +266,40 @@ hr {
         font-size: 30px;
       }
 
+    }
+  }
+
+  .swiper-slide {
+    // width: auto;
+    max-width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+    $imageSize: 500px;
+
+    .meetingroomSwiper-image-wrapper {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: $imageSize;
+      max-height: 50vh;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+      transition: 300ms;
+    }
+
+
+    &.swiper-slide-prev,
+    &.swiper-slide-next {
+      img {
+        height: calc($imageSize * .6);
+        opacity: .5;
+      }
     }
   }
 }
