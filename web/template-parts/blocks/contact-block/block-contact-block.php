@@ -10,7 +10,7 @@
 */
 
 // Set name of the block for class and ID generation
-$name = 'contat-block';
+$name = 'contact-block';
 
 // Get id and classlist
 $id    = fairbase_block_id( $name, $block, false );
@@ -22,80 +22,139 @@ if (isset($block['data']['preview_image'])) {
     <img src="' . $block['data']['preview_image'] . '" alt="" style="width: 100%; height: auto;" >';
 }
 
+if (!function_exists('fixPhoneNumber')) {
+
+  function fixPhoneNumber($x) {
+    return str_replace(' ', '', $x);
+  }
+
+}
+
 // Get ACF fiels
 $form_shortcode = get_field('shortcode');
-
+$contactData = get_field('contact_fields', 'option');
 // Put custom functions here
 
+add_filter('gform_field_content', 'custom_gform_field_wrapper_by_id', 10, 5);
+
+function custom_gform_field_wrapper_by_id( $field_content, $field, $value, $lead_id, $form_id ) {
+    $icons_uri = get_template_directory_uri() . '/dist/images/icons/';
+    $required_class = $field->isRequired ? ' required' : '';
+
+    $gravity_settings = array(
+        1 => 'contact-icon-subject.svg',
+        3 => 'contact-icon-phone.svg',
+        5 => 'contact-icon-contact.svg',
+        6 => 'contact-icon-subject.svg',
+        7 => 'contact-icon-email.svg',
+        8 => 'contact-icon-message.svg',
+    );
+
+    if ( array_key_exists( $field->id, $gravity_settings ) ) {
+        $icon_uri = $icons_uri . $gravity_settings[ $field->id ];
+
+        $field_content = sprintf(
+            '<div class="special-contact-form-group">
+                <div class="svg-wrapper">
+                    <img src="%s" alt="">
+                </div>
+                <div class="field-wrapper%s">
+                    %s
+                </div>
+            </div>',
+            esc_url( $icon_uri ),
+            esc_attr( $required_class ),
+            $field_content
+        );
+    }
+
+    return $field_content;
+}
 
 ?>
 
 <section id="<?= $id; ?>" class="<?= $class; ?>">
-    <div class="row justify-content-center">
-        <div class="col-12">
-            <?= do_shortcode($form_shortcode); ?>
-        </div>
-        <div class="col-12">
-            <div class="contact-wrapper d-flex flex-wrap">
-                <!-- Info Block -->
-                <!-- <div class="contact-info d-flex flex-column justify-content-center p-4">
-                    <div class="info-block">
-                        <h3><span class="icon">📍</span>Locatie</h3>
-                        <p>Nieuweweg 240<br>6603 BW Wijchen</p>
+    <div class="container contact-section">
+        <div class="row no-gutters">
+            <div class="col-12 col-lg-4 offset-lg-1">
+                <div class="contact-section-image-wrapper">
+                    <?php 
+                    echo wp_get_attachment_image(get_field('image'), null, false, [ 
+                        "class" => "contact-section-image",
+                        "alt" => "" ]);
+                    ?>
+
+                    <div class="contact-section-hovering-contact-info">
+                        <div class="contact-section-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="49" height="48" viewBox="0 0 49 48" fill="none">
+                                <path d="M24.3992 12.2193C22.9347 12.2193 21.5032 12.6536 20.2855 13.4672C19.0679 14.2808 18.1189 15.4372 17.5584 16.7901C16.998 18.1431 16.8514 19.6319 17.1371 21.0682C17.4228 22.5045 18.128 23.8238 19.1635 24.8593C20.199 25.8948 21.5184 26.6 22.9547 26.8857C24.391 27.1714 25.8797 27.0248 27.2327 26.4644C28.5857 25.904 29.7421 24.9549 30.5557 23.7373C31.3693 22.5197 31.8035 21.0881 31.8035 19.6237C31.8035 17.6599 31.0234 15.7766 29.6348 14.388C28.2462 12.9994 26.3629 12.2193 24.3992 12.2193ZM24.3992 24.0663C23.5205 24.0663 22.6616 23.8057 21.931 23.3175C21.2004 22.8294 20.631 22.1355 20.2947 21.3238C19.9585 20.512 19.8705 19.6187 20.0419 18.7569C20.2133 17.8952 20.6365 17.1036 21.2578 16.4823C21.8791 15.861 22.6707 15.4378 23.5325 15.2664C24.3942 15.095 25.2875 15.183 26.0993 15.5192C26.9111 15.8555 27.6049 16.4249 28.0931 17.1555C28.5812 17.8861 28.8418 18.745 28.8418 19.6237C28.8418 20.8019 28.3737 21.9319 27.5406 22.7651C26.7074 23.5982 25.5774 24.0663 24.3992 24.0663ZM24.3992 3.33411C20.0804 3.33901 15.94 5.05679 12.8861 8.11062C9.83231 11.1644 8.11452 15.3049 8.10962 19.6237C8.10962 25.4361 10.7955 31.5965 15.8842 37.4404C18.1707 40.081 20.7441 42.4589 23.5569 44.53C23.8059 44.7044 24.1026 44.798 24.4066 44.798C24.7106 44.798 25.0072 44.7044 25.2562 44.53C28.0639 42.4581 30.6323 40.0802 32.9142 37.4404C37.9954 31.5965 40.6887 25.4361 40.6887 19.6237C40.6838 15.3049 38.966 11.1644 35.9122 8.11062C32.8584 5.05679 28.7179 3.33901 24.3992 3.33411ZM24.3992 41.4665C21.3393 39.0601 11.0714 30.2211 11.0714 19.6237C11.0714 16.0889 12.4755 12.6989 14.975 10.1995C17.4744 7.70002 20.8644 6.29584 24.3992 6.29584C27.9339 6.29584 31.3239 7.70002 33.8234 10.1995C36.3228 12.6989 37.727 16.0889 37.727 19.6237C37.727 30.2174 27.459 39.0601 24.3992 41.4665Z" fill="#DB6221"/>
+                            </svg>
+                            <h2>Locatie</h2>
+                            <?php 
+                                // Show address
+                                if ($contactData['address'] !== '') {
+                                    echo '<div>' . $contactData['address'] . '</div>';
+                                }
+                                
+                                // Showing zipcode + placename together
+                                if ($contactData['zipcode'] !== '' && $contactData['place_name'] !== '') {
+                                    echo '<div>' . $contactData['zipcode'] . ' ' . $contactData['place_name'] . '</div>';
+                                }
+                                echo '</div>';
+                            ?>
+                        <div class="contact-section-phone">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="49" height="48" viewBox="0 0 49 48" fill="none">
+                                <path d="M41.8678 29.3576L33.1473 25.4499L33.1233 25.4388C32.6705 25.2452 32.1767 25.1675 31.6864 25.2127C31.1961 25.258 30.7248 25.4248 30.3152 25.698C30.2669 25.7298 30.2206 25.7645 30.1763 25.8016L25.6708 29.6426C22.8164 28.2562 19.8695 25.3315 18.483 22.5141L22.3296 17.9401C22.3666 17.8938 22.4018 17.8475 22.4351 17.7976C22.7024 17.389 22.8647 16.9207 22.9073 16.4344C22.9499 15.948 22.8716 15.4586 22.6794 15.0098V14.9876L18.7607 6.25233C18.5066 5.66603 18.0697 5.17762 17.5153 4.86002C16.9608 4.54242 16.3185 4.41265 15.6842 4.4901C13.1759 4.82016 10.8735 6.05199 9.20712 7.95551C7.54068 9.85903 6.62414 12.3041 6.62868 14.834C6.62868 29.5316 18.5867 41.4896 33.2843 41.4896C35.8142 41.4941 38.2592 40.5776 40.1628 38.9112C42.0663 37.2447 43.2981 34.9424 43.6282 32.4341C43.7058 31.8 43.5763 31.1579 43.259 30.6034C42.9418 30.049 42.4537 29.612 41.8678 29.3576ZM33.2843 38.5279C27.0024 38.521 20.9798 36.0225 16.5378 31.5805C12.0958 27.1385 9.59727 21.1159 9.59042 14.834C9.58345 13.0264 10.2347 11.278 11.4225 9.91546C12.6103 8.5529 14.2535 7.66928 16.0452 7.42962C16.0444 7.43701 16.0444 7.44445 16.0452 7.45184L19.9324 16.1519L16.1062 20.7315C16.0674 20.7762 16.0321 20.8239 16.0007 20.8741C15.7222 21.3015 15.5587 21.7937 15.5263 22.3028C15.4939 22.812 15.5935 23.3209 15.8156 23.7803C17.4927 27.2103 20.9487 30.6404 24.4158 32.3156C24.8785 32.5356 25.3903 32.6318 25.9013 32.5948C26.4123 32.5578 26.905 32.3889 27.3312 32.1046C27.3787 32.0726 27.4245 32.038 27.4682 32.0009L31.9682 28.1618L40.6683 32.0583C40.6683 32.0583 40.6831 32.0583 40.6886 32.0583C40.4519 33.8525 39.5696 35.499 38.2068 36.6897C36.844 37.8805 35.094 38.534 33.2843 38.5279Z" fill="#DB6221"/>
+                            </svg>
+                            <h2>Telefoon</h2>
+                            <a href="tel:<?= fixPhoneNumber($contactData['phonenumber']); ?>">
+                                <?= $contactData['phonenumber']; ?>
+                            </a>
+                        </div>
+                        <div class="contact-section-email">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="49" height="48" viewBox="0 0 49 48" fill="none">
+                                <path d="M42.1697 9.20044H6.62882C6.23607 9.20044 5.8594 9.35646 5.58169 9.63418C5.30397 9.91189 5.14795 10.2886 5.14795 10.6813V35.8561C5.14795 36.6416 5.45999 37.3949 6.01542 37.9503C6.57085 38.5058 7.32418 38.8178 8.10969 38.8178H40.6888C41.4743 38.8178 42.2276 38.5058 42.7831 37.9503C43.3385 37.3949 43.6505 36.6416 43.6505 35.8561V10.6813C43.6505 10.2886 43.4945 9.91189 43.2168 9.63418C42.9391 9.35646 42.5624 9.20044 42.1697 9.20044ZM24.3992 24.9624L10.4365 12.1622H38.362L24.3992 24.9624ZM18.9774 24.0091L8.10969 33.9698V14.0484L18.9774 24.0091ZM21.1691 26.0176L23.3904 28.063C23.6636 28.3138 24.021 28.453 24.3918 28.453C24.7627 28.453 25.1201 28.3138 25.3933 28.063L27.6146 26.0176L38.3509 35.8561H10.4365L21.1691 26.0176ZM29.8211 24.0091L40.6888 14.0466V33.9717L29.8211 24.0091Z" fill="#DB6221"/>
+                            </svg>
+                            <h2>E-mail</h2>
+                            <a href="mailto:<?= $contactData['e_mail']; ?>">
+                                <?= $contactData['e_mail']; ?>
+                            </a>
+                            
+                        </div>
+                        <div class="contact-section-address">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="49" height="48" viewBox="0 0 49 48" fill="none">
+                                <path d="M19.9565 28.586C19.9565 28.9788 19.8005 29.3554 19.5228 29.6332C19.2451 29.9109 18.8684 30.0669 18.4757 30.0669H11.0713C10.6786 30.0669 10.3019 29.9109 10.0242 29.6332C9.74649 29.3554 9.59047 28.9788 9.59047 28.586C9.59047 28.1933 9.74649 27.8166 10.0242 27.5389C10.3019 27.2612 10.6786 27.1051 11.0713 27.1051H18.4757C18.8684 27.1051 19.2451 27.2612 19.5228 27.5389C19.8005 27.8166 19.9565 28.1933 19.9565 28.586ZM45.1313 21.9221V33.0286C45.1313 33.8141 44.8193 34.5675 44.2638 35.1229C43.7084 35.6783 42.9551 35.9904 42.1696 35.9904H25.88V41.9138C25.88 42.3066 25.724 42.6832 25.4463 42.961C25.1686 43.2387 24.7919 43.3947 24.3991 43.3947C24.0064 43.3947 23.6297 43.2387 23.352 42.961C23.0743 42.6832 22.9183 42.3066 22.9183 41.9138V35.9904H6.62873C5.84323 35.9904 5.0899 35.6783 4.53446 35.1229C3.97903 34.5675 3.66699 33.8141 3.66699 33.0286V21.9221C3.67042 18.9775 4.84167 16.1545 6.9238 14.0724C9.00593 11.9903 11.8289 10.819 14.7735 10.8156H28.8418V4.89212C28.8418 4.49937 28.9978 4.12271 29.2755 3.84499C29.5532 3.56727 29.9299 3.41125 30.3226 3.41125H36.2461C36.6388 3.41125 37.0155 3.56727 37.2932 3.84499C37.5709 4.12271 37.727 4.49937 37.727 4.89212C37.727 5.28487 37.5709 5.66154 37.2932 5.93926C37.0155 6.21697 36.6388 6.37299 36.2461 6.37299H31.8035V10.8156H34.0248C36.9694 10.819 39.7924 11.9903 41.8745 14.0724C43.9566 16.1545 45.1279 18.9775 45.1313 21.9221ZM22.9183 33.0286V21.9221C22.9183 19.762 22.0602 17.6903 20.5327 16.1629C19.0053 14.6354 16.9336 13.7773 14.7735 13.7773C12.6134 13.7773 10.5417 14.6354 9.01428 16.1629C7.48684 17.6903 6.62873 19.762 6.62873 21.9221V33.0286H22.9183ZM42.1696 21.9221C42.1671 19.7627 41.3082 17.6925 39.7813 16.1656C38.2544 14.6387 36.1842 13.7798 34.0248 13.7773H31.8035V27.1051C31.8035 27.4979 31.6475 27.8746 31.3698 28.1523C31.092 28.43 30.7154 28.586 30.3226 28.586C29.9299 28.586 29.5532 28.43 29.2755 28.1523C28.9978 27.8746 28.8418 27.4979 28.8418 27.1051V13.7773H22.3167C23.4408 14.8153 24.3377 16.0749 24.951 17.4767C25.5643 18.8785 25.8806 20.3921 25.88 21.9221V33.0286H42.1696V21.9221Z" fill="#DB6221"/>
+                            </svg>
+                            <h2>Postadres</h2>
+                            <?php
+                                // Show address
+                                if ($contactData['postadress'] !== '') {
+                                    echo '<div>' . $contactData['postadress'] . '</div>';
+                                }
+                                
+                                // Showing zipcode + placename together
+                                if ($contactData['post_zipcode'] !== '' && $contactData['postadress'] !== '') {
+                                    echo '<div>' . $contactData['post_zipcode'] . ' ' . $contactData['post_place_name'] . '</div>';
+                                }
+                                echo '</div>';
+                            ?>
+
+                        </div>
                     </div>
-                    <div class="info-block">
-                        <h3><span class="icon">📞</span>Telefoon</h3>
-                        <p>+31 (0)24 200 11 22</p>
-                    </div>
-                    <div class="info-block">
-                        <h3><span class="icon">📧</span>E-mail</h3>
-                        <p>info@demeschellen.nl</p>
-                    </div>
-                    <div class="info-block">
-                        <h3><span class="icon">📬</span>Postadres</h3>
-                        <p>Postbus 13<br>6600 AA Wijchen</p>
-                    </div>
-                </div> -->
-                <!-- Image -->
-                <div class="contact-image offset-lg-2">
-                    <img src="https://demeshallen.nl/wp-content/uploads/2022/03/Meshallen.jpg" alt="Vergaderruimte">
                 </div>
-                <!-- Contact Form -->
-                <div class="contact-form col-6">
-                    <h2>Neem contact op</h2>
-                    <form>
-                        <div class="form-group">
-                            <label><span class="icon">          <a href="#">
-            <img src="<?= get_template_directory_uri(); ?>/dist/images/icons/building-office.svg" alt="Facebook icon">
-          </a></span>Organisatie *</label>
-                            <input type="text" placeholder="Voorbeeld B.V." required>
-                        </div>
-                        <div class="form-group">
-                            <label><span class="icon">📞</span>Telefoon *</label>
-                            <input type="tel" placeholder="+31 6 12345678" required>
-                        </div>
-                        <div class="form-group">
-                            <label><span class="icon">🧑‍💼</span>Contactpersoon *</label>
-                            <input type="text" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label><span class="icon">📄</span>Onderwerp</label>
-                            <input type="text" placeholder="Voorbeeld..." required>
-                        </div>
-                        <div class="form-group">
-                            <label><span class="icon">📧</span>E-mailadres *</label>
-                            <input type="email" placeholder="voorbeeld@voorbeeld.nl" required>
-                        </div>
-                        <div class="form-group full">
-                            <label><span class="icon">💬</span>Uw bericht *</label>
-                            <textarea placeholder="Dit is een voorbeeld tekst..." required></textarea>
-                        </div>
-                        <div class="form-group full">
-                            <label><input type="checkbox" required> Ik ben geen robot</label>
-                            <div class="g-recaptcha" data-sitekey="your-site-key"></div>
-                        </div>
-                        <button type="submit">Versturen</button>
-                    </form>
+            <div class="col-12 col-lg-7">
+                <div class="contact-section-text-wrapper">
+                    <h2 class="contact-section-text-wrapper-title"><?php echo esc_html(get_field('title')); ?></h2>
+                    <div class="contact-section-form">
+                        <?php 
+                        
+                            ob_start();
+                            echo do_shortcode($form_shortcode);
+                            $content = ob_get_clean();
+                            echo $content;
+                        
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

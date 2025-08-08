@@ -1,0 +1,133 @@
+.contact-section {
+  border-radius: 25px;
+  padding: 0;
+
+  .contact-section-image-wrapper {
+    position: relative;
+    height: 100%;
+    min-height: 600px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 25px 0 0 25px;
+    }
+
+    .contact-section-hovering-contact-info {
+      background-color: $white;
+      border-radius: 25px;
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      transform: translate(-50%, -50%);
+      padding: 15px;
+
+      & > div {
+        position: relative;
+        padding-left: 80px;
+        margin: 25px 0;
+
+        h2 {
+          margin: 0;
+          font-size: 24px;
+        }
+
+        div,
+        p,
+        a {
+          font-size: 16px;
+          color: $grey-2;
+          text-decoration: none;
+        }
+
+        svg {
+          position: absolute;
+          top: 0px;
+          left: 10px;
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+
+  .contact-section-text-wrapper {
+    background-color: $white;
+    height: 100%;
+    border-radius: 0 25px 25px 0;
+
+    &-title {
+      background-color: $full-white;
+      width: fit-content;
+      transform: translateY(-50%);
+      padding: 5px 15px;
+      border-radius: 15px;
+      margin-left: 30px;
+    }
+
+    .contact-section-form {
+      padding-top:20px;
+    }
+  }
+
+  &-form {
+    margin: 0 30px 30px 30px;
+
+    .gform_heading {
+      display: none !important;
+    }
+  }
+}
+
+@media (max-width: 990px) {
+    .contact-section {
+        .contact-section-image-wrapper {
+            min-height: 400px;
+            img {
+                border-radius: 25px 25px 0 0;
+            }
+            
+            .contact-section-hovering-contact-info {
+                top: -25px;
+                left: -25px;
+                transform: none;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap:20px;
+                
+                & > div {
+                    padding: 5px;
+                    padding-top:2em;
+                    margin: 0;
+                    
+                    svg {
+                        width: 2em;
+                        height: 2em;
+            left: 0;
+          }
+        }
+      }
+    }
+    
+    .contact-section-text-wrapper {
+      border-radius: 0 0 25px 25px;
+    }
+}
+}
+
+@media (max-width: 650px) {
+
+     .contact-section {
+        .contact-section-image-wrapper {
+            margin-top:20vh;
+            .contact-section-hovering-contact-info {
+                
+                top:-20vh;
+                width: 100%;
+                left:0;
+            }
+        }
+    }
+
+}
