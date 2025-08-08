@@ -91,7 +91,7 @@
             "layout": "table",
             "pagination": 0,
             "min": 1,
-            "max": 0,
+            "max": 8,
             "collapsed": "",
             "button_label": "Voordeel toevoegen",
             "rows_per_page": 20,
@@ -139,5 +139,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1753700600
+    "modified": 1754574081
 }
