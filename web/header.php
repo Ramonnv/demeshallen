@@ -62,7 +62,7 @@
       </div>
     </div>
     <div class="mobile-navigation-main">
-      <h2>Mobiele navigatie</h2>
+      <h2>Menu</h2>
         <?php
           wp_nav_menu( array(
               'theme_location'  => 'mobile_menu',
