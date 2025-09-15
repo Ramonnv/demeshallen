@@ -49,7 +49,7 @@ get_header();
                                     $corner_class = 'corner-tr';
                                 }
                                 ?>
-                                <div class="col-6 col-lg-4 mt-16 <?= $offset_class ?>">
+                                <div class="col-12 col-lg-4 mt-16 <?= $offset_class ?>">
                                     <div class="contactpage-coworker-wrapper <?= $corner_class ?>">
                                         <div class="image-wrapper">
                                             <?= wp_get_attachment_image($image, null, false, ["class" => "", "alt" => ""]); ?>
