@@ -22,31 +22,33 @@
       left: 0%;
       transform: translate(-50%, -50%);
       padding: 15px;
+      width: 226px;
 
-      & > div {
-        position: relative;
-        padding-left: 80px;
-        margin: 25px 0;
+      .contact-section-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 22px;
+        margin-bottom: 30px;
 
-        h2 {
-          margin: 0;
-          font-size: 24px;
+        &-icon img {
+          width: 32px;
+          height: auto;
+          display: block;
         }
 
-        div,
-        p,
-        a {
-          font-size: 16px;
-          color: $grey-2;
-          text-decoration: none;
-        }
+        &-content {
+          h2 {
+            margin: 0 0 4px;
+            font-size: 24px;
+          }
 
-        svg {
-          position: absolute;
-          top: 0px;
-          left: 10px;
-          width: 50px;
-          height: 50px;
+          div,
+          p,
+          a {
+            font-size: 16px;
+            color: $grey-2;
+            text-decoration: none;
+          }
         }
       }
     }
@@ -67,7 +69,7 @@
     }
 
     .contact-section-form {
-      padding-top:20px;
+      padding-top: 20px;
     }
   }
 
@@ -77,57 +79,128 @@
     .gform_heading {
       display: none !important;
     }
+
+    .special-contact-form-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
+
+      .svg-wrapper {
+        flex: 0 0 32px;
+      }
+
+      .field-content {
+        flex: 1;
+
+        label {
+          display: block;
+          margin-bottom: 6px;
+        }
+
+        input,
+        textarea,
+        select {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
+/* Responsive */
 @media (max-width: 990px) {
-    .contact-section {
-        .contact-section-image-wrapper {
-            min-height: 400px;
-            img {
-                border-radius: 25px 25px 0 0;
-            }
-            
-            .contact-section-hovering-contact-info {
-                top: -25px;
-                left: -25px;
-                transform: none;
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap:20px;
-                
-                & > div {
-                    padding: 5px;
-                    padding-top:2em;
-                    margin: 0;
-                    
-                    svg {
-                        width: 2em;
-                        height: 2em;
-            left: 0;
+  .contact-section {
+    .contact-section-image-wrapper {
+      min-height: 400px;
+
+      img {
+        border-radius: 25px 25px 0 0;
+      }
+
+      .contact-section-hovering-contact-info {
+        top: -25px;
+        left: -25px;
+        transform: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        .contact-section-item {
+          padding: 5px;
+          padding-top: 2em;
+          margin: 0;
+
+          &-icon img {
+            width: 2em;
+            height: 2em;
           }
         }
       }
     }
-    
+
     .contact-section-text-wrapper {
       border-radius: 0 0 25px 25px;
     }
-}
+  }
 }
 
 @media (max-width: 650px) {
+  .contact-section {
+    .contact-section-image-wrapper {
+      margin-top: 20vh;
 
-     .contact-section {
-        .contact-section-image-wrapper {
-            margin-top:20vh;
-            .contact-section-hovering-contact-info {
-                
-                top:-20vh;
-                width: 100%;
-                left:0;
-            }
-        }
+      .contact-section-hovering-contact-info {
+        top: -20vh;
+        width: 100%;
+        left: 0;
+      }
     }
-
+  }
+}.special-contact-form-group {
+  display: grid;
+  grid-template-columns: 40px 1fr; /* icoon links, veld rechts */
+  column-gap: 16px; /* iets meer ruimte tussen icoon en veld */
+  margin-bottom: 24px;
+  align-items: start;
 }
+
+.special-contact-form-group .svg-wrapper {
+  grid-column: 1;
+  grid-row: 1 / span 2; /* icoon blijft over label + input */
+  display: flex;
+  align-items: flex-start; /* boven uitlijnen */
+  justify-content: center;
+}
+
+.special-contact-form-group .field-content {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* extra ruimte tussen label en input */
+}
+
+.special-contact-form-group label {
+  display: block;
+  font-weight: 500;
+  margin: 0; /* voorkom dubbele margins */
+}
+
+
+.special-contact-form-group input,
+.special-contact-form-group textarea,
+.special-contact-form-group select {
+  width: 100%;
+}
+.special-contact-form-group .field-content label {    
+    margin-bottom: 6px;
+    font-size: 24px;
+}
+.special-contact-form-group .field-input {
+    margin-left: 36px;
+}
+.special-contact-form-group .field-label {
+    margin-left: 60px;
+    margin-top: 18px;
+}
+
