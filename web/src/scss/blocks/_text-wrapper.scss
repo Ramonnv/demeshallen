@@ -225,7 +225,7 @@ hr {
 }
 
 .meetingroom-swiper-wrapper {
-  height: 30vh;
+  height: 28vh;
   display: block;
 }
 
@@ -247,7 +247,7 @@ hr {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 69%;
     height: 5em;
     z-index: 999999;
     pointer-events: none;
@@ -257,14 +257,14 @@ hr {
     .swiper-button-next {
       pointer-events: all;
       background-color: $transparent-white;
-      width: 50px;
-      height: 50px;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       font-size: 25px;
       color: $primary-color;
 
       &::after {
-        font-size: 30px;
+        font-size: 16px;
       }
 
     }
@@ -272,13 +272,13 @@ hr {
 
   .swiper-slide {
     // width: auto;
-    max-width: 80%;
+    max-width: 70%;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.3s;
-    $imageSize: 500px;
+    $imageSize: 430px;
 
     .meetingroomSwiper-image-wrapper {
       width: 100%;
