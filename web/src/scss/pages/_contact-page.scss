@@ -6,8 +6,9 @@
 .contactpage-coworker-view {
     position: absolute;
     top: calc(90% - 16px);
-    left: 2.5%;
-    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 72%;
 
     .contactpage-coworker-wrapper {
         display: flex;
