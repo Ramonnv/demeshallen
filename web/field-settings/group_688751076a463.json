@@ -79,7 +79,7 @@
             "label": "Voordelen ruimte",
             "name": "benefits_space",
             "aria-label": "",
-            "type": "repeater",
+            "type": "checkbox",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -88,46 +88,21 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
-            "pagination": 0,
-            "min": 1,
-            "max": 8,
-            "collapsed": "",
-            "button_label": "Voordeel toevoegen",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_6970a46988feb",
-                    "label": "Aanwezig in de ruimte",
-                    "name": "aanwezig_in_de_ruimte",
-                    "aria-label": "",
-                    "type": "checkbox",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "Tv scherm met Airtaime": "Tv scherm met Airtaime",
-                        "Tv scherm met Teams opstelling": "Tv scherm met Teams opstelling",
-                        "Whiteboard": "Whiteboard",
-                        "Bijzet Tafeltjes": "Bijzet Tafeltjes",
-                        "Stopcontacten": "Stopcontacten"
-                    },
-                    "default_value": [],
-                    "return_format": "value",
-                    "allow_custom": 0,
-                    "allow_in_bindings": 0,
-                    "layout": "horizontal",
-                    "toggle": 0,
-                    "save_custom": 0,
-                    "custom_choice_button_text": "Nieuwe keuze toevoegen",
-                    "parent_repeater": "field_688753c12fec0"
-                }
-            ]
+            "choices": {
+                "Tv scherm met Airtaime": "Tv scherm met Airtaime",
+                "Tv scherm met Teams opstelling": "Tv scherm met Teams opstelling",
+                "Whiteboard": "Whiteboard",
+                "Bijzet Tafeltjes": "Bijzet Tafeltjes",
+                "Stopcontacten": "Stopcontacten"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Nieuwe keuze toevoegen"
         }
     ],
     "location": [
@@ -149,5 +124,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1768989904
+    "modified": 1768991736
 }
