@@ -11,8 +11,8 @@ jQuery(document).ready(function ($) {
         let swiperChildren = '';
 
         if (Array.isArray(x['benefits_space'])) {
-            x['benefits_space'].forEach(function (item) {
-                listHTML += `<li>${item.benefit}</li>`;
+            x['benefits_space'][0]['aanwezig_in_de_ruimte'].forEach(function (item) {
+                listHTML += `<li>${item}</li>`;
             });
         }
 
