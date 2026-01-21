@@ -97,11 +97,11 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_6887545b1505c",
-                    "label": "Voordeel",
-                    "name": "benefit",
+                    "key": "field_6970a46988feb",
+                    "label": "Aanwezig in de ruimte",
+                    "name": "aanwezig_in_de_ruimte",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "checkbox",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -110,12 +110,21 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "maxlength": "",
+                    "choices": {
+                        "Tv scherm met Airtaime": "Tv scherm met Airtaime",
+                        "Tv scherm met Teams opstelling": "Tv scherm met Teams opstelling",
+                        "Whiteboard": "Whiteboard",
+                        "Bijzet Tafeltjes": "Bijzet Tafeltjes",
+                        "Stopcontacten": "Stopcontacten"
+                    },
+                    "default_value": [],
+                    "return_format": "value",
+                    "allow_custom": 0,
                     "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
+                    "layout": "horizontal",
+                    "toggle": 0,
+                    "save_custom": 0,
+                    "custom_choice_button_text": "Nieuwe keuze toevoegen",
                     "parent_repeater": "field_688753c12fec0"
                 }
             ]
@@ -139,5 +148,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1754574081
+    "display_title": "",
+    "modified": 1768989904
 }
