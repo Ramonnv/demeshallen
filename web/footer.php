@@ -104,16 +104,16 @@ if ($contactData) {
 <div class="col-12 col-md-8 d-flex">
   <div class="footer-column">
         <div class="social-grid">
-          <a href="#">
+          <a href="https://www.facebook.com/demeshallen/">
             <img src="<?= get_template_directory_uri(); ?>/dist/images/icons/facebook.svg" alt="Facebook icon">
           </a>
-          <a href="#">
+          <a href="https://www.instagram.com/de_meshallen/">
             <img src="<?= get_template_directory_uri(); ?>/dist/images/icons/instagram-logo.svg" alt="Instagram icon">
           </a>
-          <a href="#">
+          <a href="https://www.linkedin.com/company/de-meshallen/">
               <img src="<?= get_template_directory_uri(); ?>/dist/images/icons/linkedin-logo.svg" alt="LinkedIn icon">
           </a>
-          <a href="#">
+          <a href="https://twitter.com/demeshallen">
               <img src="<?= get_template_directory_uri(); ?>/dist/images/icons/x-logo.svg" alt="X icon">
           </a>
         </div>
