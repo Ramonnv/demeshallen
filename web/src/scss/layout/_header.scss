@@ -69,9 +69,17 @@
 
   .mobile-navigation-toggler {
     display: none;
+    cursor: pointer;
 
     svg {
       height: 1.5rem;
+      fill: $primary-color;
+      transition: transform 200ms, fill 200ms;
+
+      &:hover {
+        fill: $primary-color-hover;
+        transform: scale(1.1);
+      }
     }
   }
 
