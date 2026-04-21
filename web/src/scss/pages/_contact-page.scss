@@ -1,20 +1,17 @@
-// .contactpage-coworker-wrapper
-
-
-// Works
-
 .contactpage-coworker-view {
-    position: absolute;
-    top: calc(90% - 16px);
-    left: 2.5%;
+    position: relative;
     width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -60px;
+    padding-bottom: 40px;
 
     .contactpage-coworker-wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 140px;
-        padding: 10px 15px;
+        min-height: 100px;
+        padding: 10px 12px;
         background-color: $white;
         border-radius: 10px;
         transition: .3s ease;
@@ -35,6 +32,7 @@
 
         .image-wrapper {
             width: 30%;
+            flex-shrink: 0;
 
             img {
                 @include hexagon-clip;
@@ -46,14 +44,14 @@
 
         .coworker-text-wrapper {
             width: 65%;
-            padding-left: 15px;
+            padding-left: 12px;
 
             h2 {
                 color: $primary-color;
                 margin: 0;
                 position: relative;
                 width: fit-content;
-                font-size: 24px;
+                font-size: 18px;
 
                 &::after {
                     content: '';
@@ -70,6 +68,7 @@
             p {
                 margin: 0;
                 margin-top: 5px;
+                font-size: 14px;
                 color: $grey-3;
             }
         }
@@ -77,6 +76,27 @@
         &:hover {
             h2::after {
                 width: 100%;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin-top: -70px;
+
+        .contactpage-coworker-wrapper {
+            min-height: 140px;
+            padding: 10px 15px;
+
+            .coworker-text-wrapper {
+                padding-left: 15px;
+
+                h2 {
+                    font-size: 24px;
+                }
+
+                p {
+                    font-size: inherit;
+                }
             }
         }
     }

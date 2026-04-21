@@ -22,15 +22,7 @@
     }
   ?>
   </div>
-  <div class="page-404-main-image">
-    
-    <?=
-    wp_get_attachment_image(get_field('404_image', 'options'), null, false, [ 
-"class" => "",
-"alt" => "" ]);
-
-    ?>
-  </div>
+  <div class="page-404-main-image"></div>
 </div>
 
 </main>
