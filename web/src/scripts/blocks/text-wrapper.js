@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
 
         if (Array.isArray(x['benefits_space'])) {
             x['benefits_space'].forEach(function (item) {
-                listHTML += `<li>${item.benefit}</li>`;
+                listHTML += `<li>${item}</li>`;
             });
         }
 
