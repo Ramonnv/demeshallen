@@ -7,7 +7,7 @@
  */
 
 // Define version. Always overwrite, so no plugin or else can overwrite.
-define( 'FAIRBASE_THEME_VERSION', '1.0.1' );
+define( 'FAIRBASE_THEME_VERSION', '1.0.2' );
 
 if ( ! defined( 'FAIRBASE_ENVIRONMENT' ) ) {
 	define( 'FAIRBASE_ENVIRONMENT', 'DEVELOPMENT' );
